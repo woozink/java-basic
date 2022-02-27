@@ -30,6 +30,12 @@ public class MethodEx {
         System.out.println(x);
     }
 
+    public static int returnMethod(){
+        int ret = 100;
+        ret *= 100;
+        return ret;// 10000
+    }
+
     public static void main(String[] args) {
         //[1]메서드 호출
         helloWorld();
@@ -44,7 +50,11 @@ public class MethodEx {
         plusMethod(a, b);
 
         // 3 반환값 ==> o 받는 인자값 ==> x
-
+        //반환값이 있다는 것은 메서드(함수) 호출에 따른 리턴 값이 있다는 것이므로 호출시 리턴을 받는다(변수를 정의 한다.).
+        int rst;
+        rst = returnMethod();
+        //출력
+        System.out.println("메서드 호출에 따른 리턴값 " + rst);
 
         // 4 반환값 ==> o 받는 인자값 ==> o
     }
