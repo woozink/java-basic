@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class MethodEx {
     // 스테틱은 스테틱으로 부른다.
     public static void helloWorld() {
@@ -30,11 +32,19 @@ public class MethodEx {
         System.out.println(x);
     }
 
-    public static int returnMethod(){
+    public static int returnMethod() {
         int ret = 100;
         ret *= 100;
         return ret;// 10000
     }
+
+    public static String capitalMethod(String str){
+        String ret = str.toUpperCase();
+
+        return ret;
+
+    }
+
 
     public static void main(String[] args) {
         //[1]메서드 호출
@@ -57,6 +67,12 @@ public class MethodEx {
         System.out.println("메서드 호출에 따른 리턴값 " + rst);
 
         // 4 반환값 ==> o 받는 인자값 ==> o
+        // 반환값이 있다는 것은 메서드(함수_ 호출에 따른 리턴되는 값이 있다는 것이므로 호출시 리턴 값을 받는 변수를 정의한다.
+
+        String rst1; //문자열 변수 선언
+
+        rst1 = capitalMethod("Korea"); // 문자열은 쌍따옴표 문자는 작은 따옴표
+        System.out.println("입력한 소문자의 대문자는 = " +rst1);
     }
 
 }
