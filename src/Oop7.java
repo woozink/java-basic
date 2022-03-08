@@ -73,7 +73,17 @@ public class Oop7 {
         System.out.println(h1.name);
         System.out.println(h1.gender); //부모클래스
         System.out.println(h1.power); //부모클래스
+        h1.eat();
         h1.displayPerson();
+        h1.walk();
+        p1.walk();
+
+        //[3] 원더우먼 객체 생성
+        Hero h2 = new Hero("원더우먼",30);
+        h2.displayPerson();
+        h2.gender=2;
+        h2.power =300;
+        h2.displayPerson();
     }
 
 }
