@@ -101,14 +101,33 @@ class Villain extends Person {
         return power;
     }
 
+    public String getWeaponName(int a) {
+        String weapon;
+        switch (a) {
+            case 1:
+                weapon = "창";
+                break;
+            case 2:
+                weapon = "방패";
+                break;
+            case 3:
+                weapon = "총";
+                break;
+            default:
+                weapon = "----";
+                break;
+        }
+        return weapon;
+    }
+
     public void printPerson() {
         System.out.println("악당이름 : " + getName());
-        System.out.println("나이 : " + getAge());
-        System.out.println("웨폰 : " + getWeapon());
-        System.out.println("키 : " + getHeight());
-        System.out.println("무게 : " + getWeight());
-        System.out.println("파워 : " + getPower());
-        System.out.println("유니크키 : " + getUniqueKey());
+        System.out.println("악당나이 : " + getAge());
+        System.out.println("악당무기 : " + getWeaponName(getWeapon()));
+        System.out.println("악당키 : " + getHeight());
+        System.out.println("악당무게 : " + getWeight());
+        System.out.println("악당파워 : " + getPower());
+        System.out.println("악당성별 : " + getUniqueKey());
         System.out.println("--------------------------------");
 
     }
@@ -122,8 +141,17 @@ public class Inheritance {
     public static void main(String[] args) {
 
         //[1] 객체 생성
-       Villain v1 = new Villain("좀비",20,80,180,1,"1",99.5);
-       v1.printPerson();
+        Villain v1 = new Villain("좀비", 20, 80, 180, 3, "1", 99.5);
+        v1.printPerson();
+        System.out.print(v1.getName() + " ");
+        v1.move(); // 부모 클래스의 move()메서드를 호출
+
+
+        //[2] 객체 생성
+        Villain v2 = new Villain("도깨비", 30, 110, 120, 1, "1", 99.5);
+        v2.printPerson();
+        System.out.print(v2.getName() + " ");
+        v2.move(); // 부모 클래스의 move()메서드를 호출
     }
 }
 
