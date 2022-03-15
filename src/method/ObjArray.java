@@ -13,6 +13,7 @@ public class ObjArray {
 //           System.out.println(pa[i].name + pa[i].age);
 
        }
+
     }
 }
 
