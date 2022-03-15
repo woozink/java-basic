@@ -2,19 +2,17 @@ package method;
 
 public class ObjArray {
     public static void main(String[] args) {
-        int [] ar1 = {1,2,3,4,5};
-        char[] ar2 = {'A','B','C','D','E'};
-        Person[] pa = new Person[5];
-        pa[0] = new Person("홍길동",20);
-        pa[1] = new Person("양길동",21);
-        pa[2] = new Person("한길동",22);
-        pa[3] = new Person("이길동",23);
-        pa[4] = new Person("김길동",24);
+       Person[] pa;
+       pa = new Person[5];
 
-        for(int i = 0; i < ar1.length; i++){
-            System.out.print(pa[i].getName() + "    ");
-        }
-        System.out.println();
+       for(int i = 0; i <= pa.length; i++){
+           pa[i] = new Person(i+ "번 후보자",i+20);
+
+           System.out.println(pa[i].getName() + "--> 나이 " +pa[i].getAge());
+
+//           System.out.println(pa[i].name + pa[i].age);
+
+       }
     }
 }
 
