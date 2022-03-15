@@ -1,38 +1,44 @@
 package abstract2;
 
 
-abstract class Animal{
+abstract class Animal {
     // 구체적인 내용을 작성하지 않고 공통적인 특징을 추성적으로 선언 ==> 리턴값 조차도 없이 메서드명만 선언
     abstract void cry();
+    void eat(){
+        System.out.println("먹다!");
+    }
 }
 
-class Dog extends Animal{
-    void cry(){
+class Dog extends Animal {
+    void cry() {
         System.out.println("멍멍 ~");
     }
 }
 
-class Cat extends Animal{
-    void cry(){
+class Cat extends Animal {
+    void cry() {
         System.out.println("야용 !");
     }
 }
 
-class Cow extends Animal{
-    void cry(){
+class Cow extends Animal {
+    void cry() {
         System.out.println("음머 ~");
     }
 }
-class Animal2{
-    void fly(){
+
+class Animal2 {
+    void fly() {
         System.out.println("날다 !");
-    }
+    }   void eat() {}
 }
+
 public class Abstract {
     public static void main(String[] args) {
         //[1] 추상 클래스는 구체적인 내용이 없기 때문에 객체를 생성할 수 없다.
         Animal2 dragonfly = new Animal2();
         dragonfly.fly();
+        dragonfly.eat();
 
         //[2] 추상클래스 사용은? --> 상속을 받아서 사용
         // 즉. 추상클래스(부모역할)를 상속받은 자식 클래스에서 해당 메서드를 오버라이딩(재정의)해서 사용한다.
@@ -45,3 +51,35 @@ public class Abstract {
         cow.cry();
     }
 }
+
+
+//[3] summary
+// 추상클래스는 다른 클래스들의 공통적인 특징을 변수나 메서드로 정의만 한것을 말한다. --> 추상메서드
+// abstract 를 앞에 붙이고 클래스 안에 추상메서드를 포함하고 있다는 것을 제외하면 사실일반 클래스와 별반 차이가 없다.
+// field constructor method 추상메서드 말고 일반메서드도 포함 할 수 있다.
+// 메서드 선언만 있고 구체적인 내용은 없으므로 객체를 생성 할 수 없다.
+// 따라서 부모클래스로서의 역할은 하지만 구체적인 사용은 상속받은 자식클래스에서 재정의 (오바라이딩) 하여 사용해야한다. --> 강제성
+// 추상 클래스에서선언만 해놓음으로써 이후 새로운 (자식) 클래스들이 이를 상속 받아 구현하므로 새로운 클래스를 작성할 떄 마다 하나의 틀이 된다.
+
+
+// 왜 써?
+// 우선 강제하기 위함이다.
+// 부모 클래스가 선언해 놓은 메서드를 상속받은 잣긱 클래스들이 이름 그대로 재정의 해서 구현하라고 강제하는 것이다.
+// 상속받은 자식 클래스 입장에서는 자칫 상속만 받고 재정의 해서 사용을 안할 수도 있기 때문에 ...
+// 즉, 일반 메서드로 구현하면 누군가는 해당 메서드를 구현 안할 수 있다.
+// 무조건 상속받은 자식 클래스 입장에서는 추상 메서드를 재정의 하고구현하도록 강제하기 위함이다.
+
+// 꼭 재정의 (override)햐여하는가?
+// 일단 그렇다.
+// 자식 클래스는 일단은 무조건 부모 추상 클래스로 부터 상속받은 추상 메서드는 오바라이딩 해서 재정의 해야한다.
+// 추상메서드를 포함하고 있다면 곧 추상 클래스여야한다.
+
+// 만약 재정의 하고 싶지 않다면?
+//자식클래스에서 상속받은 추상 메서들르 구현하지 않는다면 자식 클래스도 abstract를 붙여서 추상으로 만들어준다.
+//class cow 앞에다사 abstract를 붙이다.
+
+// 결론
+// 부모 클래스에서 구현을 하지 않는 이유는 해당 메서드의 구현이 상속받는 클래스에 따라서 달라질 수 있기 때문에 선언만 해둔 석디아.
+// 마치 돈 많은 부모가 엄청난 대지만 상속해주고 용도는 자식들이 알아서 사용해라 ~
+// 이러한 추살클래스는 여러명의 개발자가 작업할 때 코드의 확장과 분업을 효율족으로 처리할수 있게 해준다.
+// 분업화된 시스템에서 공통의 프로젝트를 진행할 때 많이 사용되어지는 중요한 문법이다.
