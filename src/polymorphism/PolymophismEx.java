@@ -18,5 +18,26 @@ package polymorphism;
 // 왜냐하면 "앵무새"는 분명 그 상위인 "새"라고 말할 수 있지만 새는 종류가 많아서 모든 새는 앵무새가 아니다.
 // 따라서 상위 클래스의 인스턴스(객체)는 하위 (자식)클래스의 인스턴스로 사용될 수 없다.
 
+
+class Person{
+
+}
+
+class Student extends Person{
+
+}
+
 public class PolymophismEx {
+    public static void main(String[] args) {
+        //객체생성
+        Student s1 = new Student(); //정상
+
+        // 객체생성 --> 부모타입으로 생성
+        Person s2 = new Student(); //정상
+        Person p1 = new Person(); //정상
+
+        // 객체생성 --> 상위 클래스로 객체를 생성하면서 타입은 하위 타입을 쓰면 안된다.
+        // Student s3 = new Person(); 반대는 안된디/
+
+    }
 }
