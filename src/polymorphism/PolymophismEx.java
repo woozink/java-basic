@@ -19,22 +19,64 @@ package polymorphism;
 // 따라서 상위 클래스의 인스턴스(객체)는 하위 (자식)클래스의 인스턴스로 사용될 수 없다.
 
 
-class Person{
+class Person {
+    String str1 = "난 부모클래스 ";
 
+    void method1() {
+        System.out.println("에이에이에이");
+    }
+
+    void ppp() {
+        System.out.println("ppp");
+    }
 }
 
-class Student extends Person{
+class Student extends Person {
+    String str2 = "난 자식클래스 ";
 
+    void method1() {
+        System.out.println("오버라이딩 - AAA");
+    }
+
+    void sss() {
+        System.out.println("sss");
+    }
 }
 
 public class PolymophismEx {
     public static void main(String[] args) {
-        //객체생성
-        Student s1 = new Student(); //정상
 
-        // 객체생성 --> 부모타입으로 생성
+        //[1] 객체생성 --> 부모 +자식 클래스의 모든 자원을 다 쓸 수 있다.
+        Student s1 = new Student(); //정상
+        System.out.println((s1.str1));
+        System.out.println(s1.str2);
+        s1.method1();
+        s1.sss();
+        s1.ppp();
+        System.out.println("------------------");
+        //[!] 자식클래스에서 오버라이딩 된 부모 클래스의 원본 메서드를 호출하고 싶다면 ?
+
+
+
+
+        //[2] 객체생성 --> 부모타입으로 생성 --> 범위는 부모클래스의 자원만 쓸 수 있다 (?)
         Person s2 = new Student(); //정상
-        Person p1 = new Person(); //정상
+        System.out.println(s2.str1);
+        s2.ppp();
+        //s2.str2  -> err
+        s2.method1(); // * 오버라이딩 한 것은 자식의 메서드로 실행이된다. *
+        System.out.println("----------------------");
+        // [!] 부모 클래스에서 자식클래스의 원본인 메서드를 호출하고 싶다면 ?
+
+
+
+
+        // [3]객체생성 -->
+        Person aaa= new Person(); //정상
+        aaa.method1();
+        // aaa.sss -> err
+
+
 
         // 객체생성 --> 상위 클래스로 객체를 생성하면서 타입은 하위 타입을 쓰면 안된다.
         // Student s3 = new Person(); 반대는 안된디/
