@@ -33,13 +33,15 @@ class Person {
 
 class Student extends Person {
     String str2 = "난 자식클래스 ";
-
     void method1() {
         System.out.println("오버라이딩 - AAA");
     }
-
     void sss() {
         System.out.println("sss");
+    }
+    void x(){
+        method1();
+        super.method1();
     }
 }
 
@@ -53,10 +55,10 @@ public class PolymophismEx {
         s1.method1();
         s1.sss();
         s1.ppp();
-        System.out.println("------------------");
-        //[!] 자식클래스에서 오버라이딩 된 부모 클래스의 원본 메서드를 호출하고 싶다면 ?
-
-
+        System.out.println("------------------super사용");
+        //[!] 자식클래스에서 오버라이딩 된 부모 클래스의 원본 메서드를 호출하고 싶다면 ? super 사용.
+        s1.x();
+        System.out.println("_____________________________");
 
 
         //[2] 객체생성 --> 부모타입으로 생성 --> 범위는 부모클래스의 자원만 쓸 수 있다 (?)
@@ -65,8 +67,10 @@ public class PolymophismEx {
         s2.ppp();
         //s2.str2  -> err
         s2.method1(); // * 오버라이딩 한 것은 자식의 메서드로 실행이된다. *
-        System.out.println("----------------------");
-        // [!] 부모 클래스에서 자식클래스의 원본인 메서드를 호출하고 싶다면 ?
+        System.out.println("----------------------캐스트 사용!");
+        // [!] 부모 클래스에서 자식메서드를 바로 호출하고 싶다면 ? 캐스트가 필요합니당 !!!!!!!
+        ((Student)s2).sss();
+        System.out.println("_____________________________");
 
 
 
